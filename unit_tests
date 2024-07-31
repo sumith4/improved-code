@@ -1,0 +1,18 @@
+import unittest
+
+class TestF(unittest.TestCase):
+
+    def test_single_element(self):
+        self.assertEqual(f(['a']), {'a': 1})
+
+    def test_multiple_unique_elements(self):
+        self.assertEqual(f(['a', 'b', 'c']), {'a': 1, 'b': 1, 'c': 1})
+
+    def test_repeated_elements(self):
+        self.assertEqual(f(['a', 'a', 'b', 'b', 'b', 'c']), {'a': 2, 'b': 3, 'c': 1})
+
+    def test_mixed_data_types(self):
+        self.assertEqual(f(['a', 1, 'a', 1, 2]), {'a': 2, 1: 2, 2: 1})
+
+if __name__ == '__main__':
+    unittest.main()
